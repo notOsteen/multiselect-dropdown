@@ -181,7 +181,7 @@ class FieldDecoration {
     this.focusedBorder,
     this.disabledBorder,
     this.errorBorder,
-    this.suffixIcon = const Icon(Icons.arrow_drop_down),
+    this.suffixIcon,
     this.prefixIcon,
     this.labelStyle,
     this.borderRadius = 12,
@@ -211,10 +211,10 @@ class FieldDecoration {
   final InputBorder? errorBorder;
 
   /// The icon to display at the end of dropdown field.
-  final Widget? suffixIcon;
+  final SvgPicture? suffixIcon;
 
   /// The icon to display at the start of dropdown field.
-  final Widget? prefixIcon;
+  final SvgPicture? prefixIcon;
 
   /// The style of the label text.
   final TextStyle? labelStyle;
@@ -272,7 +272,7 @@ class ChipDecoration {
   });
 
   /// The icon to display for deleting a chip.
-  final Icon? deleteIcon;
+  final SvgPicture? deleteIcon;
 
   /// The background color of the chip.
   final Color? backgroundColor;
