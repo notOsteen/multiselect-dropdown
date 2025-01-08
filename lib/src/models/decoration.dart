@@ -190,6 +190,8 @@ class FieldDecoration {
     this.padding = const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
     this.backgroundColor,
     this.showClearIcon = true,
+    this.suffixIconSize = 16,
+    this.prefixIconSize = 16,
   });
 
   /// The label text to display above the dropdown field.
@@ -213,8 +215,14 @@ class FieldDecoration {
   /// The icon to display at the end of dropdown field.
   final SvgPicture? suffixIcon;
 
+  /// The size of the suffixIcon.
+  final double suffixIconSize;
+
   /// The icon to display at the start of dropdown field.
   final SvgPicture? prefixIcon;
+
+  /// The size of the prefixIcon.
+  final double prefixIconSize;
 
   /// The style of the label text.
   final TextStyle? labelStyle;
@@ -269,10 +277,14 @@ class ChipDecoration {
     this.labelStyle,
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
     this.wrap = true,
+    this.deleteIconSize = 16,
   });
 
   /// The icon to display for deleting a chip.
   final SvgPicture? deleteIcon;
+
+  /// The size of the delete icon.
+  final double deleteIconSize;
 
   /// The background color of the chip.
   final Color? backgroundColor;

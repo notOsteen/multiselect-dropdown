@@ -507,9 +507,10 @@ class _MultiDropdownState<T extends Object> extends State<MultiDropdown<T>> {
     final fieldDecoration = widget.fieldDecoration;
 
     final prefixIcon = fieldDecoration.prefixIcon != null
-        ? IconTheme.merge(
-            data: IconThemeData(color: widget.enabled ? null : Colors.grey),
-            child: fieldDecoration.prefixIcon!,
+        ? SizedBox(
+            width: fieldDecoration.prefixIconSize,
+            height: fieldDecoration.prefixIconSize,
+            child: fieldDecoration.prefixIcon,
           )
         : null;
 
@@ -555,13 +556,21 @@ class _MultiDropdownState<T extends Object> extends State<MultiDropdown<T>> {
     }
 
     if (!widget.fieldDecoration.animateSuffixIcon) {
-      return widget.fieldDecoration.suffixIcon;
+      return SizedBox(
+        width: widget.fieldDecoration.suffixIconSize,
+        height: widget.fieldDecoration.suffixIconSize,
+        child: widget.fieldDecoration.suffixIcon,
+      );
     }
 
-    return AnimatedRotation(
-      turns: _dropdownController.isOpen ? 0.5 : 0,
-      duration: const Duration(milliseconds: 200),
-      child: widget.fieldDecoration.suffixIcon,
+    return SizedBox(
+      width: widget.fieldDecoration.suffixIconSize,
+      height: widget.fieldDecoration.suffixIconSize,
+      child: AnimatedRotation(
+        turns: _dropdownController.isOpen ? 0.5 : 0,
+        duration: const Duration(milliseconds: 200),
+        child: widget.fieldDecoration.suffixIcon,
+      ),
     );
   }
 
@@ -643,10 +652,13 @@ class _MultiDropdownState<T extends Object> extends State<MultiDropdown<T>> {
                   .unselectWhere((element) => element.label == option.label);
             },
             child: SizedBox(
-              width: 16,
-              height: 16,
+              width: chipDecoration.deleteIconSize,
+              height: chipDecoration.deleteIconSize,
               child: chipDecoration.deleteIcon ??
-                  const Icon(Icons.close, size: 16),
+                  Icon(
+                    Icons.close,
+                    size: chipDecoration.deleteIconSize,
+                  ),
             ),
           ),
         ],
